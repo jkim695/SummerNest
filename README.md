@@ -6,8 +6,7 @@ Contains all of the pathing for each of webpages.
 
 # HomePage.js
 
-Supported by HomePage.css, it contains the homepage. Right now it has the search
-feature.
+Supported by HomePage.css, it contains the homepage. Has a description of how to use the webpage.
 
 In the future, we should get rid of this search feature and instead have a better
 UI that tells the user how to use our website.
