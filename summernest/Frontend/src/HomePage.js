@@ -22,6 +22,9 @@ const HomePage = () => {
             Discover your ideal college sublet with ease. Our platform connects you with verified listings, ensuring a safe and smooth renting experience.
           </p>
           <p>
+            First time here? Click the browse listings button to view available listings or click the sign up button to make an account.
+          </p>
+          <p>
             Why choose SummerNest over alternatives like Kopa or Apartments.com? 
             We offer personalized listings, enhanced safety features, and a user-friendly interface that makes finding your perfect sublet a breeze.
           </p>
