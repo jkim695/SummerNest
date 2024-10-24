@@ -1,7 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import HomePage from './HomePage'; // Ensure the path is correct
-import BrowseListings from './BrowseListings'; // Ensure the path is correct
+//Importing all of the webpages for each of the tabs that we have
+//At the top of the homepage
+import HomePage from './HomePage'; 
+import BrowseListings from './BrowseListings'; 
+import ListYourSpace from './ListYourSpace'; 
 
 function App() {
     return (
@@ -9,7 +12,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/browse-listings" element={<BrowseListings />} />
-                {/* Add other routes here */}
+                <Route path="/list-your-space" element={<ListYourSpace />} />
             </Routes>
         </Router>
     );

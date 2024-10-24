@@ -18,7 +18,7 @@ const HomePage = () => {
         <nav>
           {/* Use Link instead of <a> */}
           <Link to="/browse-listings">Browse Listings</Link>
-          <Link to="/create-listing">List Your Space</Link>
+          <Link to="/list-your-space">List Your Space</Link>
           <Link to="/login">Login</Link>
           <Link to="/signup">Sign Up</Link>
         </nav>
