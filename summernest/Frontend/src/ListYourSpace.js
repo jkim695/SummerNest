@@ -20,7 +20,7 @@ const ListYourSpace = () => {
     <div className="list-your-space">
       <header className="header">
         <h1>List Your Space</h1>
-        <Link to="/browse-listings" className="back-button">Back</Link>
+        <Link to="/ " className="back-button">Back</Link>
       </header>
 
       <main>
