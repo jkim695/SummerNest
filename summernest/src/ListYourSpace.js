@@ -1,84 +1,73 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Import Link for navigation
-import './ListYourSpace.css'; // Optional: Create a CSS file for styling
+import { Link } from 'react-router-dom';
+import './ListYourSpace.css'; // Assuming you have this CSS file
 
 const ListYourSpace = () => {
-  // State for the listing details
-  const [listingDetails, setListingDetails] = useState({
-    title: '',
-    price: '',
-    description: '',
-    location: '',
-  });
+  const [title, setTitle] = useState('');
+  const [price, setPrice] = useState('');
+  const [description, setDescription] = useState('');
+  const [location, setLocation] = useState('');
+  const [startDate, setStartDate] = useState(''); // New state for start date
+  const [endDate, setEndDate] = useState('');     // New state for end date
 
-  // Handle form input changes
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setListingDetails({
-      ...listingDetails,
-      [name]: value,
-    });
-  };
-
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you can handle the submission, e.g., send the data to a server
-    console.log('Listing submitted:', listingDetails);
-    // Optionally reset the form
-    setListingDetails({
-      title: '',
-      price: '',
-      description: '',
-      location: '',
-    });
+    // Handle form submission here (e.g., send data to an API)
+    console.log('Listing details:', { title, price, description, location, startDate, endDate });
   };
 
   return (
     <div className="list-your-space">
       <header className="header">
         <h1>List Your Space</h1>
-        <Link to="/" className="back-button">Back to Home</Link> {/* Back Button */}
+        <Link to="/browse-listings" className="back-button">Back</Link>
       </header>
 
       <main>
-        <section className="listing-form">
-          <h2>Enter Your Listing Details</h2>
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              name="title"
-              placeholder="Listing Title"
-              value={listingDetails.title}
-              onChange={handleChange}
-              required
-            />
-            <input
-              type="text"
-              name="price"
-              placeholder="Price per Month"
-              value={listingDetails.price}
-              onChange={handleChange}
-              required
-            />
-            <textarea
-              name="description"
-              placeholder="Description"
-              value={listingDetails.description}
-              onChange={handleChange}
-              required
-            ></textarea>
-            <input
-              type="text"
-              name="location"
-              placeholder="Location"
-              value={listingDetails.location}
-              onChange={handleChange}
-              required
-            />
-            <button type="submit">Submit Listing</button>
-          </form>
-        </section>
+        <form onSubmit={handleSubmit} className="listing-form">
+          <input
+            type="text"
+            placeholder="Title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            required
+          />
+          <input
+            type="text"
+            placeholder="Price"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+            required
+          />
+          <textarea
+            placeholder="Description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            required
+          />
+          <input
+            type="text"
+            placeholder="Location"
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+            required
+          />
+          {/* New start date input */}
+          <input
+            type="date"
+            value={startDate}
+            onChange={(e) => setStartDate(e.target.value)}
+            required
+          />
+          {/* New end date input */}
+          <input
+            type="date"
+            value={endDate}
+            onChange={(e) => setEndDate(e.target.value)}
+            required
+          />
+          <button type="submit">Submit Listing</button>
+        </form>
       </main>
 
       <footer>
@@ -88,4 +77,4 @@ const ListYourSpace = () => {
   );
 };
 
-export default ListYourSpace; // Export the component
+export default ListYourSpace;
