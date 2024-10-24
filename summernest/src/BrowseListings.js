@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './BrowseListings.css'; // Create this CSS file if needed
+import { Link } from 'react-router-dom'; // Add this import
 
 const BrowseListings = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -22,6 +23,7 @@ const BrowseListings = () => {
     <div className="browse-listings">
       <header className="header">
         <h1>Browse Listings</h1>
+        <Link to="/" className="back-button">Back to Home</Link> {/* Back Button */}
       </header>
 
       <main>
