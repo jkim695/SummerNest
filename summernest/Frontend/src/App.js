@@ -6,7 +6,7 @@ import HomePage from './HomePage';
 import BrowseListings from './BrowseListings'; 
 import ListYourSpace from './ListYourSpace'; 
 import Login from './Login';
-import Signup from './Signup';
+import Signup from './SignUp';
 
 function App() {
     return (
