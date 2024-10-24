@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './HomePage'; 
 import BrowseListings from './BrowseListings'; 
 import ListYourSpace from './ListYourSpace'; 
+import Login from './Login';
 
 function App() {
     return (
@@ -13,6 +14,7 @@ function App() {
                 <Route path="/" element={<HomePage />} />
                 <Route path="/browse-listings" element={<BrowseListings />} />
                 <Route path="/list-your-space" element={<ListYourSpace />} />
+                <Route path="/login" element={<Login />} />
             </Routes>
         </Router>
     );

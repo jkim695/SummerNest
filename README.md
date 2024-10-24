@@ -29,3 +29,8 @@ In the future, we should work with the backend to send that data to a database.
 We should also look into researching how to have the display be different depending
 on the username/password. Also dynamic updating so that it immediately gets
 put onto the BrowseListings.js page.
+
+# Login.js
+
+Supported by Login.css, it contains a sample login screen. In the future, it will
+be connected with the back end.
