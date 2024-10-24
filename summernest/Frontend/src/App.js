@@ -6,6 +6,7 @@ import HomePage from './HomePage';
 import BrowseListings from './BrowseListings'; 
 import ListYourSpace from './ListYourSpace'; 
 import Login from './Login';
+import Signup from './Signup';
 
 function App() {
     return (
@@ -15,6 +16,7 @@ function App() {
                 <Route path="/browse-listings" element={<BrowseListings />} />
                 <Route path="/list-your-space" element={<ListYourSpace />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
             </Routes>
         </Router>
     );

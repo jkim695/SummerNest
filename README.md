@@ -34,3 +34,8 @@ put onto the BrowseListings.js page.
 
 Supported by Login.css, it contains a sample login screen. In the future, it will
 be connected with the back end.
+
+# Signup.js
+
+Supported by Signup.css, it contains a sample signup screen. In the future, it will 
+be connected with the back end
