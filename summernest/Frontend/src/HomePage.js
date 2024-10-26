@@ -10,48 +10,49 @@ const HomePage = () => {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-100">
-      <header className="flex justify-between items-center bg-white p-4 shadow">
-        <h1 className="text-xl font-bold">SummerNest</h1>
-        <nav className="space-x-4">
-          <Link to="/browse-listings" className="text-blue-600 hover:underline">Browse Listings</Link>
-          <Link to="/list-your-space" className="text-blue-600 hover:underline">List Your Space</Link>
-          <Link to="/login" className="text-blue-600 hover:underline">Login</Link>
-          <Link to="/signup" className="text-blue-600 hover:underline">Sign Up</Link>
+    <div className="flex flex-col min-h-screen bg-gray-50">
+      <header className="flex justify-between items-center bg-white p-6 shadow-md">
+        <h1 className="text-3xl font-extrabold text-blue-600">SummerNest</h1>
+        <nav className="space-x-8">
+          <Link to="/browse-listings" className="text-blue-600 hover:text-blue-800 transition">Browse Listings</Link>
+          <Link to="/list-your-space" className="text-blue-600 hover:text-blue-800 transition">List Your Space</Link>
+          <Link to="/login" className="text-blue-600 hover:text-blue-800 transition">Login</Link>
+          <Link to="/signup" className="text-blue-600 hover:text-blue-800 transition">Sign Up</Link>
         </nav>
       </header>
 
-      <main className="flex-1 p-6">
-        <section className="mb-8">
-          <h2 className="text-2xl font-semibold">Welcome to SummerNest</h2>
-          <p className="mt-2">
-            Discover your ideal college sublet with ease. Our platform connects you with verified listings, ensuring a safe and smooth renting experience.
+      <main className="flex-1 p-8">
+        <section className="mb-10 text-center">
+          <h2 className="text-4xl font-semibold text-blue-700">Welcome to SummerNest</h2>
+          <p className="mt-4 text-lg text-gray-700 max-w-2xl mx-auto">
+            Discover your ideal college sublet with ease. Our platform connects you with verified listings,
+            ensuring a safe and smooth renting experience.
           </p>
-          <p className="mt-2">
+          <p className="mt-2 text-gray-600">
             First time here? Click the browse listings button to view available listings or click the sign up button to make an account.
           </p>
-          <p className="mt-2">
-            Why choose SummerNest over alternatives like Kopa or Apartments.com? 
+          <p className="mt-2 text-gray-600">
+            Why choose SummerNest over alternatives like Kopa or Apartments.com?
             We offer personalized listings, enhanced safety features, and a user-friendly interface that makes finding your perfect sublet a breeze.
           </p>
         </section>
 
-        <div className="mb-8">
-          <h2 className="text-xl font-semibold">Recommended Listings</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
-            {/* Iterate over the listings array to create listing cards */}
+        <div className="mb-10">
+          <h2 className="text-3xl font-semibold text-blue-700 mb-4">Recommended Listings</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {listings.map((listing) => (
-              <div className="bg-white p-4 rounded-lg shadow" key={listing.id}>
-                <h4 className="font-bold">{listing.title}</h4>
-                <p className="text-gray-600">Location: City, College</p>
-                <p className="font-semibold">Price: {listing.price}</p>
+              <div className="bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105" key={listing.id}>
+                <h4 className="text-xl font-bold text-gray-800">{listing.title}</h4>
+                <p className="text-gray-600 mt-2">Location: City, College</p>
+                <p className="font-semibold text-lg text-blue-600 mt-2">Price: {listing.price}</p>
+                <button className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">View Details</button>
               </div>
             ))}
           </div>
         </div>
       </main>
 
-      <footer className="bg-white p-4 text-center">
+      <footer className="bg-white p-4 text-center shadow-md">
         <p className="text-gray-600">&copy; 2024 SummerNest. All rights reserved.</p>
       </footer>
     </div>
