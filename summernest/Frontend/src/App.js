@@ -8,6 +8,7 @@ import ListYourSpace from './ListYourSpace';
 import Login from './Login';
 import Signup from './SignUp';
 import './index.css'; // Adjust the path as necessary
+import ListingDetail from './ListingDetail'; // Import the ListingDetail component
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
                 <Route path="/list-your-space" element={<ListYourSpace />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
+                <Route path="/listing/:id" element={<ListingDetail/>} />
             </Routes>
         </Router>
     );

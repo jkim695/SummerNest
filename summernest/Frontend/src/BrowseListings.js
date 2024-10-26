@@ -60,7 +60,10 @@ const BrowseListings = () => {
                 <h4 className="text-xl font-bold text-gray-800">{listing.title}</h4>
                 <p className="text-gray-600 mt-2">Location: City, College</p>
                 <p className="font-semibold text-lg text-blue-600 mt-2">Price: {listing.price}</p>
-                <button className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">View Details</button>
+                {/* Update the button to be a Link */}
+                <Link to={`/listing/${listing.id}`} className="mt-4 inline-block px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">
+                  View Details
+                </Link>
               </div>
             ))}
           </div>
