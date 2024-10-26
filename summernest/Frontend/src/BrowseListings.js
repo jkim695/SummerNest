@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import './BrowseListings.css'; // Create this CSS file if needed
-import { Link } from 'react-router-dom'; // Add this import
+import { Link } from 'react-router-dom';
 
 const BrowseListings = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -20,46 +19,55 @@ const BrowseListings = () => {
   ];
 
   return (
-    <div className="browse-listings">
-      <header className="header">
-        <h1>Browse Listings</h1>
-        <Link to="/" className="back-button">Back to Home</Link> {/* Back Button */}
+    <div className="flex flex-col min-h-screen bg-gray-100">
+      <header className="flex justify-between items-center bg-white p-4 shadow">
+        <h1 className="text-xl font-bold">Browse Listings</h1>
+        <Link to="/" className="text-blue-600 hover:underline">Back to Home</Link>
       </header>
 
-      <main>
-        <section className="search-section">
-          <h2>Search for a Sublet</h2>
-          <form onSubmit={handleSearch} className="search-form">
+      <main className="flex-1 p-6">
+        <section className="mb-8">
+          <h2 className="text-2xl font-semibold">Search for a Sublet</h2>
+          <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-4 mt-4">
             <input
               type="text"
               placeholder="Enter city or college name"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
+              className="flex-1 p-2 border border-gray-300 rounded"
             />
             <input
               type="date"
               value={searchDate}
               onChange={(e) => setSearchDate(e.target.value)}
+              className="p-2 border border-gray-300 rounded"
             />
-            <button type="submit">Search</button>
+            <button
+              type="submit"
+              className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition"
+            >
+              Search
+            </button>
           </form>
         </section>
 
-        <section className="listings">
-          <h3>Available Listings</h3>
-          <div className="listing-grid">
+        <div className="mb-8">
+          <h2 className="text-xl font-semibold">Recommended Listings</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+            {/* Iterate over the listings array to create listing cards */}
             {listings.map((listing) => (
-              <div key={listing.id} className="listing-card">
-                <h4>{listing.title}</h4>
-                <p>{listing.price}</p>
+              <div className="bg-white p-4 rounded-lg shadow" key={listing.id}>
+                <h4 className="font-bold">{listing.title}</h4>
+                <p className="text-gray-600">Location: City, College</p>
+                <p className="font-semibold">Price: {listing.price}</p>
               </div>
             ))}
           </div>
-        </section>
+        </div>
       </main>
 
-      <footer>
-        <p>&copy; 2024 . All rights reserved.</p>
+      <footer className="bg-white p-4 text-center">
+        <p className="text-gray-600">&copy; 2024 SummerNest. All rights reserved.</p>
       </footer>
     </div>
   );

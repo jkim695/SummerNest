@@ -7,6 +7,7 @@ import BrowseListings from './BrowseListings';
 import ListYourSpace from './ListYourSpace'; 
 import Login from './Login';
 import Signup from './SignUp';
+import './index.css'; // Adjust the path as necessary
 
 function App() {
     return (
