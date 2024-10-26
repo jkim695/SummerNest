@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "es6", // or "esnext"
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "types": ["node", "aws-lambda"], // Include Node.js and AWS Lambda types
+    "typeRoots": [
+      "./node_modules/@types"
+    ]
+  }
+}
