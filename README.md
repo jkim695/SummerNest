@@ -39,3 +39,209 @@ be connected with the back end.
 
 Supported by SignUp.css, it contains a sample signup screen. In the future, it will 
 be connected with the back end
+
+---
+
+# Image API Documentation
+
+This API provides CRUD operations for managing images stored in an S3 bucket, with metadata stored in a PostgreSQL database. The API allows users to create, read, update, and delete images.
+
+## Endpoints and Functions
+
+1. **POST /images** - `createImage`
+2. **GET /images/{id}` - `readImage`
+3. **PUT /images/{id}` - `updateImage`
+4. **DELETE /images/{id}` - `deleteImage`
+
+---
+
+## POST /images (Create Image)
+
+### Function: `createImage`
+
+**Description**: Uploads a new image to S3 and stores its metadata in PostgreSQL.
+
+- **Lambda Function File**: `createImage.ts`
+- **HTTP Method**: `POST`
+- **Request URL**: `/images`
+
+### Request
+
+**Headers**:
+- `Content-Type`: `application/json`
+
+**Body**:
+```json
+{
+  "imageData": "base64-encoded-image-data",
+  "metadata": {
+    "fileName": "example.jpg",
+    "contentType": "image/jpeg"
+  }
+}
+```
+
+### Response
+
+- **Status Code**: `201 Created`
+- **Body**:
+  ```json
+  {
+    "message": "Image created",
+    "url": "https://your-s3-bucket.s3.amazonaws.com/images/unique-id-example.jpg"
+  }
+  ```
+
+---
+
+## GET /images/{id} (Read Image)
+
+### Function: `readImage`
+
+**Description**: Retrieves metadata and the S3 URL of an image by its ID.
+
+- **Lambda Function File**: `readImage.ts`
+- **HTTP Method**: `GET`
+- **Request URL**: `/images/{id}` (replace `{id}` with the actual image ID)
+
+### Request
+
+No request body is required.
+
+**Example URL**:
+```
+GET /images/123
+```
+
+### Response
+
+- **Status Code**: `200 OK` (or `404 Not Found` if the image doesn’t exist)
+- **Body**:
+  ```json
+  {
+    "id": "123",
+    "url": "https://your-s3-bucket.s3.amazonaws.com/images/unique-id-example.jpg",
+    "metadata": {
+      "fileName": "example.jpg",
+      "contentType": "image/jpeg"
+    },
+    "createdAt": "2024-01-01T12:00:00Z",
+    "updatedAt": "2024-01-01T12:00:00Z"
+  }
+  ```
+
+---
+
+## PUT /images/{id} (Update Image)
+
+### Function: `updateImage`
+
+**Description**: Updates an image’s metadata or replaces the image in S3 by its ID.
+
+- **Lambda Function File**: `updateImage.ts`
+- **HTTP Method**: `PUT`
+- **Request URL**: `/images/{id}` (replace `{id}` with the actual image ID)
+
+### Request
+
+**Headers**:
+- `Content-Type`: `application/json`
+
+**Body**:
+```json
+{
+  "newImageData": "optional-base64-encoded-image-data",
+  "metadata": {
+    "fileName": "updated-example.jpg",
+    "contentType": "image/jpeg"
+  }
+}
+```
+
+### Response
+
+- **Status Code**: `200 OK`
+- **Body**:
+  ```json
+  {
+    "message": "Image updated successfully"
+  }
+  ```
+
+---
+
+## DELETE /images/{id} (Delete Image)
+
+### Function: `deleteImage`
+
+**Description**: Deletes an image from both S3 and PostgreSQL by its ID.
+
+- **Lambda Function File**: `deleteImage.ts`
+- **HTTP Method**: `DELETE`
+- **Request URL**: `/images/{id}` (replace `{id}` with the actual image ID)
+
+### Request
+
+No request body is required.
+
+**Example URL**:
+```
+DELETE /images/123
+```
+
+### Response
+
+- **Status Code**: `200 OK`
+- **Body**:
+  ```json
+  {
+    "message": "Image deleted successfully"
+  }
+  ```
+
+---
+
+## Error Handling
+
+For all endpoints, the API will return a standard error response if something goes wrong:
+
+- **Status Code**: `400` or `500`
+- **Body**:
+  ```json
+  {
+    "error": "Error message explaining the issue"
+  }
+  ```
+
+---
+
+## Environment Variables
+
+The Lambda functions use the following environment variables, which should be configured in your AWS Lambda console:
+
+- **S3_BUCKET_NAME**: Name of the S3 bucket used for storing images.
+- **DB_HOST**: Host address of the PostgreSQL database.
+- **DB_PORT**: Port of the PostgreSQL database (usually `5432`).
+- **DB_USER**: Username for PostgreSQL access.
+- **DB_PASSWORD**: Password for PostgreSQL access.
+- **DB_NAME**: Name of the PostgreSQL database.
+
+---
+
+11/4: Currently working on developing a simple web application that demos the functionality of our CRUD functions. 
+
+How it works + stuff we need to do:
+
+Upload code to lambda: ts code needs to be converted to js before uploading to lambda. 
+- env variables need to be configured for our lambda-layer that connects to postgresql
+- Read update and delete function code needs to be uploaded
+
+Create APIs using API gateway
+- We only need one API Resource for all 4 CRUD operations
+- GPT'd definition of an API Resource: An API resource is a specific part or segment of a web API that represents a unique entity or collection of data that an API client can interact with. Each resource typically corresponds to a particular piece of data or a functional element within an API, like a user, an image, a document, or a transaction. In RESTful APIs, resources are identified by unique URLs and are manipulated using HTTP methods like GET, POST, PUT, and DELETE.
+- Must configure body of our JSON so that we can parse it correctly to call our lambda functions seamlessly
+
+To do: Configure a web app, figure out how to integrate the frontend to make an API call to the one we configure in API gateway to perform CRUD operations.
+
+Cre
+
