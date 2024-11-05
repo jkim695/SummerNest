@@ -3,6 +3,7 @@
     "target": "es6", // or "esnext"
     "module": "commonjs",
     "strict": true,
+    "outDir": "./dist",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "types": ["node", "aws-lambda"], // Include Node.js and AWS Lambda types
