@@ -6,9 +6,10 @@ import HomePage from './HomePage';
 import BrowseListings from './BrowseListings'; 
 import ListYourSpace from './ListYourSpace'; 
 import Login from './Login';
-import Signup from './SignUp';
+import Signup from './Signup';
 import './index.css'; // Adjust the path as necessary
 import ListingDetail from './ListingDetail'; // Import the ListingDetail component
+import ImageDemo from './ImageDemo';
 
 function App() {
     return (
