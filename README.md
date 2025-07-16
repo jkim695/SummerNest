@@ -241,7 +241,3 @@ Create APIs using API gateway
 - GPT'd definition of an API Resource: An API resource is a specific part or segment of a web API that represents a unique entity or collection of data that an API client can interact with. Each resource typically corresponds to a particular piece of data or a functional element within an API, like a user, an image, a document, or a transaction. In RESTful APIs, resources are identified by unique URLs and are manipulated using HTTP methods like GET, POST, PUT, and DELETE.
 - Must configure body of our JSON so that we can parse it correctly to call our lambda functions seamlessly
 
-To do: Configure a web app, figure out how to integrate the frontend to make an API call to the one we configure in API gateway to perform CRUD operations.
-
-Cre
-
