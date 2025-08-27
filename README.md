@@ -1,4 +1,3 @@
 # SummerNest
 
-Development in progress
 
